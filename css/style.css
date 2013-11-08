@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Snippet|PT+Sans:400");
+
+/* Layout */
+body {
+  color: #1A1F1E;
+  font-family: PT Sans, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #6CBDB5;
+  font-family: Snippet, PT Sans, Helvetica, sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.container {
+  width: 630px;
+  margin: auto;
+}
+
+/* Header */
+#hero-wrapper {
+  background: #6CBDB5 url(../images/whitediamond.png);
+  border-top: 5px solid #5ea8a2;
+  border-bottom: 5px solid #5ea8a2;
+  color: white;
+  font-size: 16px;
+  line-height: 1.5em;
+  margin-bottom: 40px;
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+#hero {
+  background: rgba(108, 189, 181, 1);
+  box-shadow: 0 0 50px 50px rgba(108, 189, 181, 1);
+}
+
+#hero h1 {
+  color: white;
+  font-size: 56px;
+}
+
+#hero a {
+  color: white;
+  text-decoration: underline;
+}
+
+#hero img {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #6CBDB5, 0 0 0 6px white;
+  float: left;
+}
+
+#hero p {
+  padding-left: 150px;
+}
+
+/* Content */
+
+h2 {
+  line-height: 2em;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+p {
+  margin: 0;
+  padding-bottom: 1em;
+}
+
+a, a:visited {
+  color: #6CBDB5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section {
+  margin-bottom: 8em;
+  position: relative;
+}
+
+/* Media queries */
+@media (max-width: 700px) {
+  .container {
+    width: 90%;  
+  }
+
+}
+
+@media (max-width: 480px) {
+  #hero {
+    background: none;
+    box-shadow: none;
+  }
+
+  #hero h1 {
+    text-align: center;
+  }
+
+  #hero img {
+    display: block;
+    float: none;
+    margin: 0 auto 2em;
+  }
+
+  #hero p {
+    padding-left: 0;
+  }
+}

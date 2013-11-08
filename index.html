@@ -1,105 +1,68 @@
 <!doctype html>
 <head>
 <title>Kat Hagan : codebykat.com</title>
+
 <link rel="shortcut icon" href="images/favicon.ico">
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-<link href="css/flat-ui.css" rel="stylesheet">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
- --><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/normalize.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style type="text/css">
-  #menu {
-  	position:fixed;
-  	top:0;
-  }
-  p, li {
-  	font-size: 18px;
-  	font-weight: 500;
-  	margin-top: 4px;
-  }
-  .row-card {
-  	padding-top: 100px;
-  }
-</style>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.row-card').hide();
-		$('#hello').show();
-		$('a.internal').click(function(e) {
-			var id = $(e.target).attr('href');
-			if(id=='#') { id = "#hello"; }
-			$('.row-card').hide();
-			$(id).show();
-			e.preventDefault();
-		});
-	});
-</script>
 </head>
 <body>
+	<div id="hero-wrapper">
+		<div id="hero" class="container">
+			<header>
+				<h1>Hi, I'm Kat.</h1>
+			</header>
 
-<div class="container-fluid">
+			<div>
+				<img src="http://gravatar.com/avatar/eb5186a9c359026160de4348ce82bc59/?s=120&d=identicon">
 
-	<div class="row-fluid" id="menu">
-		<div class="span10 offset1">
-			<div class="navbar navbar-inverse">
-				<div class="navbar-inner">
-					<div class="container">
-						<ul class="nav">
-							<li><a class="internal" href="#">Hello</a></li>
-							<li><a class="internal" href="#what">What</a></li>
-							<li><a class="internal" href="#who">Who</a></li>
-							<li><a class="internal" href="#contact">Contact</a></li>
-						</ul>
-					</div>
-				</div>
+				<p>I'm a freelance web developer currently living in the Bay Area.</p>
+
+				<p>I'm interested in exploring the intersection of art and technology, mentoring women learning to code, and figuring out how we can use computers to improve day-to-day life for everyone.</p>
+
+				<p class="tip">I'm available for contract work here in SF or remotely.  <a class='internal' href="#contact">Contact me</a> for more info!</p>
 			</div>
 		</div>
 	</div>
+	
+	<div class="container">
 
-	<div class="row-fluid row-card" id="hello">
-		<div class="span8 offset2">
-			<h1>Hi, I'm Kat.</h1>
 
-			<p>I'm a freelance web developer currently living in the Bay Area.</p>
+		<section>
+			<h2>What I Do</h2>
 
-			<p>I'm interested in exploring the intersection of art and technology, mentoring women learning to code, and figuring out how we can use computers to improve day-to-day life for everyone.</p>
-
- 			<p class="tip">I'm available for contract work here in SF or remotely.  <a class='internal' href="#contact">Contact me</a> for more info!</p>
-		</div>
- 	</div>
-
-	<a name="what"></a>
-	<div class="row-fluid row-card" id="what">
-		<div class="span8 offset2">
-			<h1>What I Do</h1>
-
-			<p>I work with most of the popular web technologies and frameworks: Rails, Django, WordPress, JavaScript, etc.  I've dabbled in a lot of stuff and love learning new languages, libraries and tools.
-			</p>
+			<p>I work with most of the popular web technologies and frameworks: Rails, Django, WordPress, JavaScript, etc.  I've dabbled in a lot of stuff and love learning new languages, libraries and tools.</p>
 
 			<p>Recent projects have included:</p>
+
 			<ul>
 				<li>
 					<p>
 						A vaguely NaNoWriMo-inspired <a href="http://ulterior.herokuapp.com">random motivation generator</a>.  Written as a weekend project because I wanted to learn Flask.  <span class='gh-ico'> </span><a href="https://github.com/codebykat/ulterior">Open source</a>.
 					</p>
 				</li>
+
 				<li>
 					<p>
 						Writing a <a href="http://wordpress.org/plugins/post-by-email/">WordPress plugin</a> that allows you to post to your blog via email.  This was my project as an <a href="https://wiki.gnome.org/OutreachProgramForWomen">OPW</a> intern for the Summer 2013 round.  <a href="https://github.com/codebykat/wp-post-by-email">Open source</a>.
 					</p>
 				</li>
+
 				<li>
 					<p>
 						A JavaScript-based frontend that graphed data retrieved from a backend with a REST API.  Built using Rickshaw and d3.js.
 					</p>
 				</li>
+
 				<li>
 					<p>
 						Extracting the <a href="http://data.schoolbook.org">Rails site</a> from a combination WordPress/Rails hybrid site, updating it to embed information from the CMS, and getting it running on a new server.
 					</p>
 				</li>
+
 				<li>
 					<p>
 						A WordPress site for <a href="http://phototechmag.com/">a photography magazine</a>, which required a shopping cart plugin, custom taxonomies and theming, and an online subscription manager + paywall.
@@ -108,21 +71,17 @@
 			</ul>
 
 			<p>I have a M.S. in Computer Engineering and a B.S. in Computer Science, with a minor in photography.</p>
+
 			<p>I've been working as a programmer for 8 years, and have worked at some neat places, including Columbia University's <a href="http://ccnmtl.columbia.edu/">Center For New Media Teaching and Learning</a>.</p>
 
-			<p>For all the details, you can check out my resum&eacute; <a href="resume/">here</a>.
-			</p>
-		</div>
-	</div>
+			<p>For all the details, you can check out my resum&eacute; <a href="resume/">here</a>.</p>
+		</section>
 
-	<a name="who"></a>
-	<div class="row-fluid row-card" id="who">
-		<div class="span8 offset2">
-		<h1>Who I Am</h1>
+		<section>
+			<h2>Who I Am</h2>
+	  	
+	  	<p>Ten little-known facts about the woman behind the ones and zeros:</p>
 
-		<!-- 	<p>When I'm not lovingly crafting small-batch, artisinal software...</p>
-		 -->
-		 <p>Ten little-known facts about the woman behind the ones and zeros:</p>
 			<ol>
 				<li>I'm left-handed.</li>
 				<li>I volunteer with the <a href="http://sfspca.org">SF SPCA</a> and am a mentor at <a href="http://www.hackbrightacademy.com/">Hackbright Academy</a>.</li>
@@ -135,13 +94,10 @@
 				<li>Green tea is my morning beverage of choice.</li>
 				<li>I love logic puzzles, word games and puns.</li>
 			</ol>
-		</div>
-	</div>
+		</section>
 
-	<a name="contact"></a>
-	<div class="row-fluid row-card" id="contact">
-		<div class="span8 offset2">
-			<h1>Get In Touch</h1>
+		<section>
+			<h2>Get In Touch</h2>
 
 			<p>Want to work with me?  Have a question?  Wondering where to get good New Mexican food in SF?</p><p>I'd love to hear from you!</p>
 
@@ -149,11 +105,8 @@
 				<li>Email: <a href="mailto:kat@codebykat.com">kat@codebykat.com</a></li>
 				<li>Twitter: <a href="http://twitter.com/wirehead2501">@wirehead2501</a></li>
 				<li>Github: <a href="http://github.com/codebykat">codebykat</a></li>
-		<!-- 		<li>Infrequently-updated <a href="http://blog.codebykat.com">blog</a></li>
-		 -->	</ul>
-		</div>
+			</ul>
+	 	</section>
 	</div>
-
-</div>
 </body>
 </html>
