@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Common WordPress Mistakes (and how to fix them)</title>
+
+		<meta name="description" content="A Talk about WordPress!">
+		<meta name="author" content="Kat Hagan">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Common WordPress Mistakes</h1>
+					<h3 class="fragment">[and how to fix them]</h3>
+				</section>
+
+				<section>
+					<section>
+						<h2>Editing Core Files</h2>
+						<p class="fragment"><strong>Not even once.</strong></p>
+
+					</section>
+
+					<section>
+						<div style="float:right;">
+							<blockquote>
+								&ldquo;With great power comes great responsibility<br />to not edit core files.&rdquo;
+							</blockquote>
+							-- Voltaire
+						</div>
+						<img style='width:25%;float:left;' src="../images/voltaire.jpg" />
+					</section>
+
+					<section>
+						<h2>Why does it matter?</h2>
+						<ul>
+							<li class="fragment">Updates will wipe out your changes!</li>
+							<li class="fragment">Easy way to get hacked.</li>
+							<li class="fragment">WordPress provides a safer way to do this!</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>The Fix</h2>
+						<ul>
+							<li>Use hooks to override core functionality.</li>
+							<li>Create child theme or small plugin.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Actions</h2>
+						<pre style="width:110%"><code data-trim contenteditable>
+add_action ( 'publish_post', 'email_friends' );
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Filters</h2>
+						<pre style="width:100%;"><code data-trim contenteditable>
+add_filter ( 'the_title', 'prepend_title' );
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Some hooks</h2>
+						<ul>
+							<li>init</li>
+							<li>plugins_loaded</li>
+							<li>pre_get_posts</li>
+							<li>publish_post</li>
+							<li>wp_footer</li>
+							<li>... one you need that doesn't exist yet?</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li>
+								<a href="http://www.elegantthemes.com/blog/tips-tricks/learning-to-use-wordpress-hooks">www.elegantthemes.com/blog/tips-tricks/learning-to-use-wordpress-hooks</a>
+							</li>
+							<li>
+								<a href="http://themesandco.com/customizr/wordpress-actions-filters-and-hooks-a-guide-for-non-developers/">themesandco.com/customizr/wordpress-actions-filters-and-hooks-a-guide-for-non-developers/</a>
+							</li>
+							<li>
+								<a href="https://codex.wordpress.org/Plugin_API">codex.wordpress.org/Plugin_API</a>
+							</li>
+							<li>
+								<a href="http://www.smashingmagazine.com/2011/10/07/definitive-guide-wordpress-hooks/">www.smashingmagazine.com/2011/10/07/definitive-guide-wordpress-hooks/</a>
+							</li>
+						</ul>
+					</section>
+
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Overloading<br /><code>functions.php</code></h2>
+					</section>
+
+					<section>
+						<h2>Examples</h2>
+						<ul>
+							<li>Adding shortcodes</li>
+							<li class="fragment">Registering widgets</li>
+							<li class="fragment">Defining custom post types</li>
+							<li class="fragment">Anything that changes the way your site <strong>works</strong>, not just how it looks.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Why does it matter?</h2>
+						<p>
+							What happens if you want to change or update your theme?
+						</p>
+					</section>
+
+					<section>
+						<h2>The Fix</h2>
+						<ul>
+							<li>Use <code>functions.php</code> only for theme or display-related functionality.</li>
+							<li>Separate functional changes into a standalone plugin.</li>
+						</p>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li><a href="http://codex.wordpress.org/Functions_File_Explained">codex.wordpress.org/Functions_File_Explained</a></li>
+							<li><a href="http://justintadlock.com/archives/2011/02/02/creating-a-custom-functions-plugin-for-end-users">justintadlock.com/archives/2011/02/02/creating-a-custom-functions-plugin-for-end-users</a></li>
+							<li><a href="https://codex.wordpress.org/Writing_a_Plugin">codex.wordpress.org/Writing_a_Plugin</a></li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Haphazard Scripts / Stylesheets</h2>
+					</section>
+
+					<section>
+						<h2>Why does it matter?</h2>
+						<ul>
+							<li>Multiple versions of scripts, e.g. jQuery</li>
+							<li>Dependencies</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>The fix</h2>
+						<ul>
+							<li>Use WP versions of libraries</li>
+							<li>
+								<code>wp_enqueue_script()</code>
+							</li>
+							<li>
+								<code>wp_enqueue_stylesheet()</code>
+							</li>
+							<li>hook to <code>wp_enqueue_scripts</code> action</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code class="php" data-trim contenteditable>
+wp_enqueue_script( 'jquery' );
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre style="width:110%;"><code class="php" data-trim contenteditable>
+wp_enqueue_script( 'my-cool-script',
+                   '/path/to/my-cool-script.js',
+                   array( 'jquery' )
+                 );
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li><a href="http://codex.wordpress.org/Function_Reference/wp_enqueue_script">codex.wordpress.org/Function_Reference/wp_enqueue_script</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>No version control</h2>
+					</section>
+
+					<section>
+						<h2>Why does it matter?</h2>
+						<ul>
+							<li>Super easy to lose all your work!</li>
+							<li>Mistakes are very costly!</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Version control = backups</h3>
+						<h3 class="fragment">Version control = checkpoints</h3>
+						<h3 class="fragment">Version control = not scary!</h3>
+					</section>
+
+					<section>
+						<h2>Once you have a checkpoint:</h2>
+						<ul>
+							<li class="fragment">"What exactly changed?" (<code>git diff</code>)</li>
+							<li class="fragment">"When did this bug start happening?" (<code>git bisect</code>)</li>
+							<li class="fragment">Someone else changed the file I'm working on!<br />(<code>git merge</code>)</li>
+							<li class="fragment">"Everything is ruined, let's go back to how it was!"<br />(<code>git reset</code>)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>git quickstart</h2>
+						<ul>
+							<li><code>git init</code>: start a new repository</li>
+							<li><code>git status</code>: show the current state of affairs</li>
+							<li><code>git add &lt;file&gt;</code>: start tracking a file</li>
+							<li><code>git commit</code>: save a checkpoint</li>
+							<li><code>git diff</code>: what's different now?</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li>
+								GUI clients: <a href="http://git-scm.com/downloads/guis">git-scm.com/downloads/guis</a>
+							</li>
+							<li>
+								Interactive lesson! <a href="https://try.github.io/levels/1/challenges/1">try.github.io</a>
+							</li>
+							<li>
+								<a href="http://classic.scottr.org/presentations/git-in-5-minutes/">classic.scottr.org/presentations/git-in-5-minutes/</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Inconsistent code</h2>
+					</section>
+
+					<section>
+						<h2>Why does it matter?</h2>
+						<ul>
+							<li>Hard to maintain</li>
+							<li>Easier to introduce bugs</li>
+							<li>Harder to find bugs</li>
+							<li>Hard to collaborate</li>
+							<li>Use your neurons for better things</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Use full PHP tags</h3>
+						<div style="position:relative;">
+							<pre class="fragment current-visible"><code class="php" data-trim contenteditable>
+&lt;? the_permalink(); ?>
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+&lt;?php the_permalink(); ?>
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+&lt;?php
+  do_some_stuff();
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h3>Descriptive function and variable names</h3>
+						<div style="position:relative;">
+							<pre class="fragment current-visible"><code class="php" data-trim contenteditable>
+$t = get_the_title();
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+$title = get_the_title();
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+$current_post_title = get_the_title();
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h3>Let code breathe</h3>
+						<div style="position:relative;">
+							<pre class="fragment current-visible"><code class="php" data-trim contenteditable>
+if($post->ID==1){do_something($post);}
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+if ( $post->ID == 1 ) {
+  do_something( $post );
+}
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h3>Indent consistently</h3>
+						<div style="position:relative;">
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+$milk = get_the_milk();
+if ( thirsty() ) {
+if ( ! is_sour( $milk ) ) {
+drink_milk(); } }
+else { throw_the_milk_out(); }
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+$milk = get_the_milk();
+if ( thirsty() ) {
+    if ( ! is_sour( $milk ) ) {
+        drink_milk();
+    }
+}
+else {
+    throw_the_milk_out();
+}
+							</code></pre>
+							<pre class="fragment current-visible"><code class="php" data-trim contenteditable>
+$milk = get_the_milk();
+if ( thirsty() {
+    if ( ! is_sour( $milk ) ) {
+        drink_milk();
+    }
+    else {
+        throw_the_milk_out();
+    }
+}
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>Yoda conditions</h2>
+						<div style="position:relative;">
+							<pre class="fragment current-visible"><code class="php" data-trim contenteditable>
+if ( $id == 1 )
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+$id == 1 // valid (comparison)
+$id = 1 // valid (assignment)
+1 == $id // valid (comparison)
+1 = $id // invalid (syntax error)
+							</code></pre>
+							<pre class="fragment current-visible" style="position:absolute;top:0;"><code class="php" data-trim contenteditable>
+if ( 1 == $id )
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>Comment as necessary</h2>
+						<p>
+							<img src="../images/comments.png" />
+						</p>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<p>
+							<a href="http://codex.wordpress.org/WordPress_Coding_Standards">codex.wordpress.org/WordPress_Coding_Standards</a>
+						</p>
+					</section>
+				</section>
+
+<!-- 				<section>
+					<section>
+						<h2>Insecure code</h2>
+					</section>
+
+					<section>
+						<h2>Basic guidelines</h2>
+						<ul>
+							<li>nonces</li>
+							<li>user_caps</li>
+							<li>sanitize/escape</li>
+						</ul>
+					</section>
+				</section>
+ -->
+<!-- 				<section>
+					<section>
+						<h2>Interacting with the database directly</h2>
+					</section>
+
+					<section>
+						<h2>Why not?</h2>
+						<ul>
+							<li>It's fragile</li>
+							<li>Hard to maintain & debug</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>The Fix</h2>
+						<ul>
+							<li>Get comfy with <code>WP_Query</code>, <code>query_posts</code>, etc.</li>
+							<li>Use the Options API and existing user and post meta when possible</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Examples</h2>
+						@todo
+					</section>
+				</section>
+ -->
+				<section>
+					<section>
+						<h2>Failing at accessibility</h2>
+					</section>
+
+					<section>
+						<h2>Why does it matter?</h2>
+						<ul>
+							<li>Those who cannot see or use a mouse.</li>
+							<li>Deaf users whose first language is sign language.</li>
+							<li>Visitors whose primary language is not your language.</li>
+							<li>People who use special assistive software or hardware to access the Web.</li>
+							<li>People who are colour blind or can’t see low colour contrast.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Tips</h2>
+						<ul>
+							<li>Use headings correctly</li>
+							<li>Descriptive link text</li>
+							<li>Navigational elements should be button, input or a elements</li>
+							<li>Keyboard navigation</li>
+							<li>Color contrast</li>
+							<li>Forms should have labels</li>
+							<li>Describe images</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li>
+								<a href="https://make.wordpress.org/themes/handbook/guidelines/accessibility/">make.wordpress.org/themes/handbook/guidelines/accessibility/</a>
+							</li>
+							<li>
+								<a href="getflywheel.com/layout/accessibility-in-wordpress/">https://getflywheel.com/layout/accessibility-in-wordpress/</a>
+							</li>
+							<li>
+								<a href="http://wptavern.com/wordpress-themes-suck-at-accessibility-its-time-to-fix-it">wptavern.com/wordpress-themes-suck-at-accessibility-its-time-to-fix-it</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>General Best Practices</h2>
+					<ul>
+						<li>Use the WordPress APIs (filters, actions, options, queries)</li>
+						<li>Follow coding style</li>
+						<li>Use version control</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Thanks!</h2>
+					<p>
+						<a href="http://codebykat.com/ABQWP/">codebykat.com/ABQWP/</a><br />
+						<a href="mailto:kat@codebykat.com">kat@codebykat.com</a><br />
+						<a href="https://twitter.com/wirehead2501">@wirehead2501</a>
+					</p>
+				</section>
+<!-- 
+				<section>
+					<h2>Resources</h2>
+					<ul>
+						<li>http://vip.wordpress.com/documentation/best-practices/</li>
+						<li>http://www.fklein.info/wordpress-theme-development-best-practices/</li>
+						<li>http://kovshenin.com/2013/better-wordpress-theme-development/</li>
+						<li>http://www.slideshare.net/chipbennett/wordcamp-tor-beyond-the-guidelines-theme-development-best-practices-vol-1</li>
+						<li>http://www.searchenginejournal.com/dont-hit-buy-button-6-red-flags-wordpress-themes/112654/</li>
+						<li>http://www.sitepoint.com/crimes-against-wordpress/</li>
+						<li>http://torquemag.io/best-practices-wordpress-theme-development/</li>
+						<li>http://code.tutsplus.com/articles/tips-for-best-practices-in-wordpress-development--cms-20649</li>
+						<li>http://viptrainingrepo.wordpress.com/2012/10/29/wordpress-development-best-practices/</li>
+						<li>http://vip.wordpress.com/documentation/</li>
+					</ul>
+				</section -->
+
+
+<!-- 				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=cube#/transitions">Cube</a> -
+						<a href="?transition=page#/transitions">Page</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a> -
+						<a href="?transition=linear#/transitions">Linear</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?#/transitions">Default</a>
+					</p>
+				</section>
+
+ --><!-- 				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the background.
+					</p>
+				</section>
+ -->
+<!-- 				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+					<h2>Background Transitions</h2>
+					<p>
+						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
+					</p>
+				</section>
+ -->
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
