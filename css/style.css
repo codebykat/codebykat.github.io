@@ -1,115 +1,155 @@
 @charset "UTF-8";
-@import url("http://fonts.googleapis.com/css?family=Snippet|PT+Sans:400");
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Loved+by+the+King|Nothing+You+Could+Do|Reenie+Beanie|Waiting+for+the+Sunrise');
 
-/* Layout */
-body {
-  color: #1A1F1E;
-  font-family: PT Sans, Helvetica, sans-serif;
+html {
+  /*background: url(https://atmospheria.files.wordpress.com/2016/10/img_20161006_104449982.jpg) no-repeat center center fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  color: #6CBDB5;
-  font-family: Snippet, PT Sans, Helvetica, sans-serif;
-  font-weight: 400;
-  margin-top: 0;
+#header {
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  background-color: purple;
+  border-bottom: 3px black solid;
+  position: fixed;
+  z-index: 100;
+  font-size: 0.9em;
+  opacity: .75;
 }
 
-.container {
-  width: 630px;
-  margin: auto;
-}
-
-/* Header */
-#hero-wrapper {
-  background: #6CBDB5 url(../images/whitediamond.png);
-  border-top: 5px solid #5ea8a2;
-  border-bottom: 5px solid #5ea8a2;
-  color: white;
-  font-size: 16px;
-  line-height: 1.5em;
-  margin-bottom: 40px;
-  overflow: hidden;
-  padding: 60px 0;
-}
-
-#hero {
-  background: rgba(108, 189, 181, 1);
-  box-shadow: 0 0 50px 50px rgba(108, 189, 181, 1);
-}
-
-#hero h1 {
-  color: white;
-  font-size: 56px;
-}
-
-#hero a {
-  color: white;
-  text-decoration: underline;
-}
-
-#hero img {
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px #6CBDB5, 0 0 0 6px white;
-  float: left;
-  width: 120px;
-}
-
-#hero p {
-  padding-left: 150px;
-}
-
-/* Content */
-
-h2 {
-  line-height: 2em;
-  font-size: 2em;
-  margin-bottom: 1em;
-}
-
-p {
-  margin: 0;
-  padding-bottom: 1em;
-}
-
-a, a:visited {
-  color: #6CBDB5;
+#header #navbar-full a {
+  color: #fff;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+#header a .details {
+  display:none;
 }
 
-section {
-  margin-bottom: 8em;
-  position: relative;
+#header #navbar-full a:hover {
+  color: lightgrey;
 }
 
-/* Media queries */
-@media (max-width: 700px) {
-  .container {
-    width: 90%;  
-  }
-
+#header a:hover i.has-details {
+  display:none;
 }
 
-@media (max-width: 480px) {
-  #hero {
-    background: none;
-    box-shadow: none;
-  }
+#header a:hover .details {
+  display: inline;
+}
 
-  #hero h1 {
-    text-align: center;
-  }
+#header p {
+  /*padding: 5px 5px 5px 75px;*/
+  display: inline-block;
+  padding-left: 5px;
+}
 
-  #hero img {
+/* mobile navbar */
+#navbar-full {
+  display: inline-block;
+}
+
+#navbar-mobile { display: none; }
+ul.navbar-mobile { display: none; }
+@media all and (max-width: 600px) {
+  #navbar-mobile {
     display: block;
-    float: none;
-    margin: 0 auto 2em;
   }
-
-  #hero p {
-    padding-left: 0;
+  div#navbar-full {
+    display: none;
   }
 }
+
+#navbar-mobile {
+  float: right;
+  padding-right: 10px;
+  padding-top: 7px;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+ul.navbar-mobile li i {
+  width: 32px;
+}
+
+ul.navbar-mobile {
+  list-style: none;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+ul.navbar-mobile a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul.navbar-mobile li {
+  border: 1px black solid;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+#caption {
+  /*font-family: 'Reenie Beanie', cursive;*/
+  /*font-family: 'Amatic SC', cursive;*/
+  font-family: 'Nothing You Could Do', cursive;
+  /*font-family: 'Waiting for the Sunrise', cursive;*/
+  /*font-family: 'Loved by the King', cursive;*/
+
+  /*font-size: 1.2em;*/
+
+  background-color: #fff;
+  color: #000;
+
+  padding: 7px 10px;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  opacity: .75;
+}
+
+#caption a {
+  color: gray;
+  text-decoration: none !important;
+}
+
+#caption a:hover {
+  color: black;
+}
+
+/* polaroid experiment
+.container {
+  text-align: center;
+  padding-top: 100px;
+}
+
+#cloud-photo {
+  width: 250px;
+  height: 275px;
+  background-color: #fff;
+  border: 10px white solid;
+  border-bottom: 40px white solid;
+  text-align: center;
+  display: inline-block;
+
+  -ms-transform: rotate(-2deg);
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  display: none;
+}
+
+#cloud-photo img {
+  padding: 0;
+  border: 0;
+}*/
