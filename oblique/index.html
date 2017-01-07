@@ -32,6 +32,16 @@
 		footer a:active {
 			color: darkgray;
 		}
+		#strategy {
+			padding-top: 50px;
+		}
+		#linebreak {
+			display: none;
+		}
+		@media all and (max-width: 450px) {
+			#pipe { display: none; }
+			#linebreak { display: block; }
+		}
 	</style>
 </head>
 <body>
@@ -44,7 +54,10 @@
 	</div>
 
 	<footer style="padding-top:200px;">
-		<small>Oblique Strategies © Brian Eno/Peter Schmidt | <a href="javascript:location.reload();">reload</a> for another | <a href="https://github.com/codebykat/"><i class="fa fa-github" aria-hidden="true"></i></a> | <a href="https://twitter.com/wirehead2501"><i class="fa fa-twitter" aria-hidden="true"></i></a></small>
+		<small>Oblique Strategies © Brian Eno/Peter Schmidt
+		<span id="pipe"> | </span>
+		<div id="linebreak"></div>
+		<a href="javascript:location.reload();">reload</a> for another | <a href="https://github.com/codebykat/"><i class="fa fa-github" aria-hidden="true"></i></a> | <a href="https://twitter.com/wirehead2501"><i class="fa fa-twitter" aria-hidden="true"></i></a></small>
 	</footer>
 
 	<script type="text/javascript">
