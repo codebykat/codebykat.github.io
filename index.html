@@ -89,17 +89,14 @@
 	  	
 
 	<script type="text/javascript">
-		Array.prototype.sample = function(){
-			return this[ Math.floor( Math.random() * this.length ) ];
-		}
-		jQuery.get( "https://public-api.wordpress.com/rest/v1.1/sites/atmospheric.blog/posts/?fields=featured_image,title,URL,date", function( data ) {
-			var posts = data.posts,
-			    post = posts.sample(),
+		random = Math.floor( Math.random() * 100 );
+		jQuery.get( "https://public-api.wordpress.com/wp/v2/sites/atmospheric.blog/posts?per_page=1&page=" + random, function( data ) {
+			var post = data[0],
 			    date = moment( post.date ).format( 'MM-DD-YYYY' );
 			// jQuery( '#cloud-photo-img' ).attr( 'src', post.featured_image + '?w=250&h=250&crop=true' );
-			jQuery( '#caption span' ).html( post.title + ', ' + date );
-			jQuery( '#photo-link' ).attr( 'href', post.URL ).toggle();
-			jQuery( 'html' ).css( 'background-image', 'url(' + post.featured_image + ')' );
+			jQuery( '#caption span' ).html( post.title.rendered + ', ' + date );
+			jQuery( '#photo-link' ).attr( 'href', post.link ).toggle();
+			jQuery( 'html' ).css( 'background-image', 'url(' + post.featured_media_url + ')' );
 		});
 
 		jQuery( '#navbar-mobile' ).click( function() {
