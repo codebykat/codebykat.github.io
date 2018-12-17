@@ -64,13 +64,13 @@
 			margin-left: -1em;
 		}
 		#reload {
-			padding-top: 10%;
 			font-size: 2em;
 			color: lightgray;
 			position: absolute;
 			width: 80%;
 			left: 10%;
 			bottom: 20%;
+			z-index: 1;
 		}
 		footer {
 			position: fixed;
@@ -82,6 +82,8 @@
 		#linebreak {
 			display: none;
 		}
+
+		/* mobile adjustments */
 		@media all and (max-width: 600px) {
 			#pipe { display: none; }
 			#linebreak { display: block; }
@@ -92,6 +94,8 @@
 				padding: 5px 0;
 			}
 		}
+
+		/* spinner styles for the reload icon */
 		@-moz-keyframes spin {
 			to { -moz-transform: rotate(360deg); }
 		}
@@ -104,6 +108,8 @@
 		.spin {
 		    animation: spin 1000ms linear infinite;
 		}
+
+		/* sizes for specific strategies */
 		.left {
 			float: left;
 			width: 100%;
@@ -113,6 +119,9 @@
 			float: right;
 			width: 100%;
 			text-align: right;
+		}
+		.small {
+			font-size:2.5rem;
 		}
 	</style>
 </head>
@@ -243,7 +252,7 @@
 			"Retrace your steps",
 			"Revaluation (a warm feeling)",
 			"Reverse",
-			"Short circuit (example; a man eating peas with the idea that they will improve his virility shovels them straight into his lap)",
+			"Short circuit<br><span class='small'>(example; a man eating peas with the idea that they will improve his virility shovels them straight into his lap)</span>",
 			"Simple Subtraction",
 			"Slow preparation, fast execution",
 			"State the problem as clearly as possible",
