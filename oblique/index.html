@@ -17,9 +17,15 @@
 		more info: https://en.wikipedia.org/wiki/Oblique_Strategies
 	-->
 
-	<!-- font and stylesheet includes -->
+	<!-- external dependencies -->
+
+	<!-- https://milligram.io/ -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" />
+
+	<!-- https://fontawesome.com/v4.7.0/ -->
 	<script src="https://use.fontawesome.com/10b5836439.js"></script>
+
+	<!-- https://github.com/BoxFactura/pulltorefresh.js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pulltorefreshjs/0.1.14/pulltorefresh.js"></script>
 
 	<style type="text/css">
@@ -41,11 +47,11 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: 90%;
+			height: 75%;
 		}
 		div.content {
 			flex: none;
-			max-width: 60%;
+			max-width: 80%;
 		}
 		#strategy {
 			color: #000;
@@ -56,6 +62,9 @@
 			list-style: none;
 			margin-left: 0;
 			padding-left: 1em;
+		}
+		#strategy li {
+			margin-bottom: 0;
 		}
 		#strategy ul > li:before {
 			display: inline-block;
@@ -109,7 +118,7 @@
 		    animation: spin 1000ms linear infinite;
 		}
 
-		/* sizes for specific strategies */
+		/* adjustments for specific strategies */
 		.left {
 			float: left;
 			width: 100%;
@@ -149,7 +158,7 @@
 			"Accept advice",
 			"Adding on",
 			"A line has two sides",
-			"Allow an easement (an easement is the abandonment of a stricture)",
+			"Allow an easement<br><span class='small'>(an easement is the abandonment of a stricture)</small>",
 			"Always give yourself credit for having more than personality",
 			"Always the first steps",
 			"Ask people to work against their better judgement",
@@ -315,6 +324,9 @@
 
 		const ptr = PullToRefresh.init({
 			mainElement: 'body',
+			instructionsPullToRefresh: 'pull down to reload',
+			instructionsReleaseToRefresh: 'release to reload',
+			instructionsRefreshing: 'strategizing',
 			onRefresh() {
 				strategize();
 			},
