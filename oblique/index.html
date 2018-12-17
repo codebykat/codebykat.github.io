@@ -73,6 +73,18 @@
 				padding: 5px 0;
 			}
 		}
+		@-moz-keyframes spin {
+			to { -moz-transform: rotate(360deg); }
+		}
+		@-webkit-keyframes spin {
+			to { -webkit-transform: rotate(360deg); }
+		}
+		@keyframes spin {
+			to {transform:rotate(360deg);}
+		}
+		.spin {
+		    animation: spin 1000ms linear infinite;
+		}
 	</style>
 </head>
 <body>
@@ -80,7 +92,7 @@
 		<div class="content">
 			<h1 id="strategy"></h1>
 			<div id="reload">
-				<a href="javascript:location.reload();"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+				<a href="javascript:strategize();"><i id="spinner" class="fa fa-refresh" aria-hidden="true"></i></a>
 			</div>
 		</div>
 	</div>
@@ -89,7 +101,7 @@
 		<a href="https://en.wikipedia.org/wiki/Oblique_Strategies">Oblique Strategies</a> © Brian Eno/Peter Schmidt
 		<span id="pipe"> | </span>
 		<div id="linebreak"></div>
-		<a href="javascript:location.reload();">reload</a> for another | <a href="https://github.com/codebykat/"><i class="fa fa-github" aria-hidden="true"></i></a> | <a href="https://twitter.com/wirehead2501"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+		<a href="javascript:strategize();">reload</a> for another | <a href="https://github.com/codebykat/"><i class="fa fa-github" aria-hidden="true"></i></a> | <a href="https://twitter.com/wirehead2501"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 	</footer>
 
 	<script type="text/javascript">
@@ -252,14 +264,21 @@
 		Array.prototype.sample = function(){
 		  return this[ Math.floor( Math.random() * this.length ) ];
 		}
-		document.getElementById( "strategy" ).innerHTML = strategies.sample();
-	</script>
+		function randomize() {
+			document.getElementById( "strategy" ).innerHTML = strategies.sample();
+			document.getElementById( "spinner" ).classList.remove( "spin" );
+		}
+		function strategize() {
+			document.getElementById( "strategy" ).innerHTML = "";
+			document.getElementById( "spinner" ).classList.add( "spin" );
+			setTimeout( randomize, 1000 );
+		}
+		strategize();
 
-	<script type="text/javascript">
 		const ptr = PullToRefresh.init({
 			mainElement: 'body',
 			onRefresh() {
-				window.location.reload();
+				strategize();
 			},
 		});
 	</script>
