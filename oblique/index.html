@@ -49,11 +49,28 @@
 		}
 		#strategy {
 			color: #000;
+			font-size: 4rem;
+		}
+		#strategy ul {
+			text-align: left;
+			list-style: none;
+			margin-left: 0;
+			padding-left: 1em;
+		}
+		#strategy ul > li:before {
+			display: inline-block;
+			content: "-";
+			width: 1em;
+			margin-left: -1em;
 		}
 		#reload {
 			padding-top: 10%;
 			font-size: 2em;
 			color: lightgray;
+			position: absolute;
+			width: 80%;
+			left: 10%;
+			bottom: 20%;
 		}
 		footer {
 			position: fixed;
@@ -87,6 +104,16 @@
 		.spin {
 		    animation: spin 1000ms linear infinite;
 		}
+		.left {
+			float: left;
+			width: 100%;
+			text-align: left;
+		}
+		.right {
+			float: right;
+			width: 100%;
+			text-align: right;
+		}
 	</style>
 </head>
 <body>
@@ -119,23 +146,23 @@
 			"Ask people to work against their better judgement",
 			"Ask your body",
 			"Assemble some of the elements in a group and treat the group",
-			"A very small object -Its centre",
+			"A very small object — Its centre",
 			"Balance the consistency principle with the inconsistency principle",
 			"Be dirty",
 			"Be extravagant",
 			"Be less critical",
 			"Be less critical more often",
 			"Breathe more deeply",
-			"Bridges -build -burn",
+			"<ul>Bridges<li>build</li><li>burn</li></ul>",
 			"Cascades",
 			"Change instrument roles",
 			"Change ambiguities to specifics",
 			"Change nothing and continue consistently",
 			"Change specifics to ambiguities",
-			"Children -speaking -singing",
+			"<ul>Children<li>speaking</li><li>singing</li></ul>",
 			"Cluster analysis",
 			"Consider different fading systems",
-			"Consult other sources -promising -unpromising",
+			"<ul>Consult other sources<li>promising</li><li>unpromising</li></ul>",
 			"Consider transitions",
 			"Convert a melodic element into a rhythmic element",
 			"Courage!",
@@ -176,7 +203,7 @@
 			"Idiot glee (?)",
 			"Imagine the piece as a set of disconnected events",
 			"Infinitesimal gradations",
-			"Intentions -nobility of -humility of -credibility of",
+			"<ul>Intentions<li>nobility of</li><li>humility of</li><li>credibility of</li></ul>",
 			"In total darkness, or in a very large room, very quietly",
 			"Into the impossible",
 			"Is it finished?",
@@ -186,7 +213,7 @@
 			"It is simply a matter of work",
 			"It is quite possible (after all)",
 			"Just carry on",
-			"Left channel, right channel, centre channel",
+			"<div class='left'>Left channel,</div><div class='right'>right channel,</div><div>centre channel</div>",
 			"Listen to the quiet voice",
 			"Look at the order in which you do things",
 			"Lost in useless territory",
@@ -227,7 +254,7 @@
 			"The inconsistency principle",
 			"The most easily forgotten thing is the most important",
 			"The tape is now the music",
-			"Think - inside the work -outside the work",
+			"<ul>Think<li>inside the work</li><li>outside the work</li></ul>",
 			"Think of the radio",
 			"Tidy up",
 			"Trust in the you of now",
@@ -244,12 +271,12 @@
 			"Use your own ideas",
 			"Voice your suspicions",
 			"Water",
-			"What are the sections sections of? Imagine a caterpillar moving",
+			"What are the sections sections of?<br>Imagine a caterpillar moving 🐛",
 			"What context would look right?",
 			"What is the simplest solution?",
 			"What is the reality of the situation?",
 			"What mistakes did you make last time?",
-			"What to increase? What to reduce? What to maintain?",
+			"What to increase?<br>What to reduce?<br>What to maintain?",
 			"What were you really thinking about just now?",
 			"What wouldn't you do?",
 			"What would your closest friend do?",
