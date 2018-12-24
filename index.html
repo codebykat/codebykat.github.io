@@ -82,7 +82,7 @@
 
 	<div id="caption">
 		<a id="photo-link" style="display:none;" href="https://atmospheric.blog"><i class="fa fa-cloud" style="vertical-align:middle;" aria-hidden="true"></i></a>
-		<span>Cloud loading…</span>
+		<span>Cloud loading&hellip;</span>
 	</div>
 
 			<!-- <p>For all the details, you can check out my resum&eacute; <a href="https://gist.github.com/codebykat/ae9490b09bed5344a959">here</a>.</p> -->
@@ -96,7 +96,7 @@
 			// jQuery( '#cloud-photo-img' ).attr( 'src', post.featured_image + '?w=250&h=250&crop=true' );
 			jQuery( '#caption span' ).html( post.title.rendered + ', ' + date );
 			jQuery( '#photo-link' ).attr( 'href', post.link ).toggle();
-			jQuery( 'html' ).css( 'background-image', 'url(' + post.featured_media_url + ')' );
+			jQuery( 'html' ).css( 'background-image', 'url(' + post.jetpack_featured_media_url + ')' );
 		});
 
 		jQuery( '#navbar-mobile' ).click( function() {
